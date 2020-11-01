@@ -8,4 +8,4 @@ before_install:
 # if we run test it should run and exit which is not dockers default behaviour
 # -- --coverage exits the test
 script:
-  - docker run kiruthiharan/docker-react npm run test -- --coverage
+  - docker run -e CI=true kiruthiharan/docker-react npm run test -- --coverage
