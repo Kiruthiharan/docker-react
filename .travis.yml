@@ -1,0 +1,11 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t kiruthiharan/docker-react -f Dockerfile.dev .
+
+# if we run test it should run and exit which is not dockers default behaviour
+# -- --coverage exits the test
+script:
+  - docker run kiruthiharan/docker-react npm run test -- --coverage
